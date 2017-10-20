@@ -1,0 +1,36 @@
+<html>
+	
+	<head>
+		<meta charset = utf8>
+	</head>
+
+	<body>
+	<script type="text/javascript">
+	
+
+	function animate(draw, space) {
+  	var start = performance.now();
+  	
+
+  requestAnimationFrame(function animate(time) {
+    // определить, сколько прошло времени с начала анимации
+    var timePassed = time - start;
+
+    // возможно небольшое превышение времени, в этом случае зафиксировать конец
+    if (timePassed > space) timePassed = duration;
+
+    // нарисовать состояние анимации в момент timePassed
+    draw(timePassed);
+
+    // если время анимации не закончилось - запланировать ещё кадр
+    if (timePassed < space) {
+      requestAnimationFrame(animate);
+    }
+
+  });
+}
+
+
+</script>
+</body>
+</html>
