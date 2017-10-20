@@ -5,32 +5,34 @@
 	</head>
 
 	<body>
-	<script type="text/javascript">
-	
+	<gif id = "space" src = "space.gif">
+		
+		<script type="text/javascript/requestAnimationFrame">
+			
+			function animate(draw, space) {
+				var start = performance.now();
+				
+				for(;;)
+				requestAnimationFrame(function animate(time) {
+					var timePassed = time - start;
 
-	function animate(draw, space) {
-  	var start = performance.now();
-  	
+					console.log(time,start)
 
-  requestAnimationFrame(function animate(time) {
-    // определить, сколько прошло времени с начала анимации
-    var timePassed = time - start;
+					draw(timePassed);
 
-    // возможно небольшое превышение времени, в этом случае зафиксировать конец
-    if (timePassed > space) timePassed = duration;
-
-    // нарисовать состояние анимации в момент timePassed
-    draw(timePassed);
-
-    // если время анимации не закончилось - запланировать ещё кадр
-    if (timePassed < space) {
-      requestAnimationFrame(animate);
-    }
-
-  });
-}
+					if(timePassed<space) requestAnimationFrame(animate);
+				})
+			}
+		</script>
 
 
-</script>
+
+
+
+
+
+
+
+
 </body>
 </html>
