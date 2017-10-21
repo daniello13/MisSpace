@@ -16,10 +16,14 @@
     margin-left: 50%;
     cursor: pointer;
    }
-   
+   #ship {
+      position: relative;
+      cursor: pointer;
+    }
   </style>
  </head>
  <body>
+   <img id="ship" src="sship.png" width="100" height="160">
    <img id="planet" src="planet.png" class = "planet">
 
  
@@ -34,6 +38,21 @@
 
         planet.style.top = timePassed / 5 + 'px';
         
+
+        if (timePassed > 2000) clearInterval(timer);
+
+      }, 20);
+    }
+  </script>
+ <script>
+    ship.onclick = function() {
+      var start = Date.now(); // сохранить время начала
+
+      var timer = setInterval(function() {
+        // вычислить сколько времени прошло из opts.duration
+        var timePassed = Date.now() - start;
+
+        ship.style.left = timePassed / 5 + 'px';
 
         if (timePassed > 2000) clearInterval(timer);
 
