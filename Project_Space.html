@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <style>
+   html {
+    background: #000 url(space.jpg) 
+
+          repeat; /* Путь к графическому файлу с фоном */
+    color: #fff; /* Белый цвет текста */
+    background-size: 100%;
+   }
+  .planet {
+
+    position: relative;
+    margin-left: 50%;
+    cursor: pointer;
+   }
+   
+  </style>
+ </head>
+ <body>
+   <img id="planet" src="planet.png" class = "planet">
+
+ 
+  
+   <script>
+    planet.onclick = function() {
+      var start = Date.now(); // сохранить время начала
+
+      var timer = setInterval(function() {
+        // вычислить сколько времени прошло из opts.duration
+        var timePassed = Date.now() - start;
+
+        planet.style.top = timePassed / 5 + 'px';
+        
+
+        if (timePassed > 2000) clearInterval(timer);
+
+      }, 20);
+    }
+  </script>
+</body>
+
+</html>
